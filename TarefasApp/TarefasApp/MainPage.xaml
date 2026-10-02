@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TarefasApp.MainPage"
+             Title="TP02 - Lista de Tarefas">
+
+    <!--﻿Nome e prontuário da dupla:
+    Lucas da Silva Santos CB3030598
+    Kaueh Farias Ferreira dos Santos CB3031438-->
+
+    <Grid RowDefinitions="*, Auto" Padding="10">
+
+        <!-- Lista de Tarefas (Ocupa o restante da tela) -->
+        <ListView x:Name="listViewTarefas" 
+                  ItemTapped="OnTarefaTapped" 
+                  Grid.Row="0"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Titulo}" FontSize="18" FontAttributes="Bold" />
+                            <Label Text="{Binding Descricao}" FontSize="14" TextColor="Gray" MaxLines="1" LineBreakMode="TailTruncation" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Botão de Adicionar (Fica no final da tela) -->
+        <Button Grid.Row="1" 
+                Text="Adicionar Nova Tarefa" 
+                Clicked="OnAdicionarClicked" 
+                BackgroundColor="#2b00ff" 
+                TextColor="White" 
+                FontAttributes="Bold"
+                CornerRadius="8"
+                Margin="0, 10, 0, 0" />
+    </Grid>
+
+</ContentPage>
